@@ -2,11 +2,11 @@
 # AutoClearLagg (ACL) Settings
 
 # Seconds between each clear lagg
-seconds: 300
+seconds: 20
 
 # Things to clear
 items: true
-mobs: true
+mobs: false
 
 # Messages broadcasted
 time-left-message: §cClear lagg in {SECONDS} seconds
@@ -14,5 +14,5 @@ items-cleared-message: §cCleared {COUNT} items
 mobs-cleared-message: §cCleared {COUNT} mobs
 
 # Countdown times
-times: [60, 30, 15, 10, 5, 4, 3, 2, 1]
+times: [20, 15, 10, 5,]
 ...
