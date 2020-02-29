@@ -1,9 +1,9 @@
-name: AutoClearLagg
+name: DRP-AutoClearLagg
 description: Recoded & improved auto clear lagg plugin
 
 main: twisted\autoclearlagg\AutoClearLagg
 version: 3.0.0
 api: [3.0.0]
 
-author: Twisted
+author: DaRealPandaz
 website: https://github.com/TwistedAsylumMC/AutoClearLagg
