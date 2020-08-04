@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace twisted\autoclearlagg;
 
-class LagClearEvent extends \pocketmine\event\plugin\PluginEvent {
+class LagClearEvent extends \pocketmine\event\plugin\PluginEvent implements \pocketmine\event\Cancellable{
+
+	protected $count;
 
 	public function __construct(\twisted\autoclearlagg\AutoClearLagg $plugin, int $entitiesCleared) {
 		unset($plugin);

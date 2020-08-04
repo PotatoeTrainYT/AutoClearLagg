@@ -114,14 +114,16 @@ class AutoClearLagg extends PluginBase{
                     }
                 }
 
+                $this->seconds = $this->interval;
                 $ev = (new LagClearEvent($this, $entitiesCleared));
                 $this->getServer()->getPluginManager()->callEvent($ev);
+
+                if ($ev->isCancelled()) return;
                 
                 if($this->messages[self::LANG_ENTITIES_CLEARED] !== ""){
                     $this->getServer()->broadcastMessage(str_replace("{COUNT}", $entitiesCleared, $this->messages[self::LANG_ENTITIES_CLEARED]));
                 }
 
-                $this->seconds = $this->interval;
             }else if(in_array($this->seconds, $this->broadcastTimes) && $this->messages[self::LANG_TIME_LEFT] !== ""){
                 $this->getServer()->broadcastMessage(str_replace("{SECONDS}", $this->seconds, $this->messages[self::LANG_TIME_LEFT]));
             }
