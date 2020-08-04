@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace twisted\autoclearlagg;
 
+use twisted\autoclearlagg\LagClearEvent;
+
 use pocketmine\entity\Creature;
 use pocketmine\entity\Human;
 use pocketmine\entity\object\ExperienceOrb;
@@ -111,6 +113,10 @@ class AutoClearLagg extends PluginBase{
                         }
                     }
                 }
+
+                $ev = (new LagClearEvent($this, $entitiesCleared));
+                $this->getServer()->getPluginManager()->callEvent($ev);
+                
                 if($this->messages[self::LANG_ENTITIES_CLEARED] !== ""){
                     $this->getServer()->broadcastMessage(str_replace("{COUNT}", $entitiesCleared, $this->messages[self::LANG_ENTITIES_CLEARED]));
                 }
